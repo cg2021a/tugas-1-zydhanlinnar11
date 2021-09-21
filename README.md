@@ -14,6 +14,10 @@
 
 ## Detail Tugas dan Identitas
 
+<p align="center">
+  <img src="https://www.its.ac.id/wp-content/uploads/2020/07/Lambang-ITS-2-320x320.png" alt="Lambang ITS"></img>
+</p>
+
 Nama : Zydhan Linnar Putra
 
 NRP : 05111940000118
