@@ -1,5 +1,17 @@
 # Tugas 1 Grafika Komputer A
 
+## Daftar Isi
+
+- [Tugas 1 Grafika Komputer A](#tugas-1-grafika-komputer-a)
+  - [Daftar Isi](#daftar-isi)
+  - [Detail Tugas dan Identitas](#detail-tugas-dan-identitas)
+  - [Gambar yang Diambil](#gambar-yang-diambil)
+    - [Kanan Atas](#kanan-atas)
+    - [Kiri Atas](#kiri-atas)
+    - [Belakang Atas](#belakang-atas)
+    - [Depan Atas](#depan-atas)
+  - [Penutup](#penutup)
+
 ## Detail Tugas dan Identitas
 
 Nama : Zydhan Linnar Putra
