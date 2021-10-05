@@ -283,6 +283,55 @@ function getBawahBulatBesarAntena() {
   return {v, i, c}
 }
 
+function getSegitigaAntena() {
+  const radius = 0.4
+  const centerZ = 0.0
+  const keliling = Math.PI * 2 * radius
+  const v = [
+    1.2, 0.4, 0.4,
+    1.6, 0.4, 0.4,
+    1.6, 0.4, 0.5,
+    1.2, 0.4, 0.5,
+    1.6, 0.4, 0.4,
+    0, 3.6, 0.4,
+    0, 3.6, 0.5,
+    1.6, 0.4, 0.5,
+    -1.2, 0.4, 0.4,
+    -1.6, 0.4, 0.4,
+    -1.6, 0.4, 0.5,
+    -1.2, 0.4, 0.5,
+    -1.6, 0.4, 0.4,
+    -0, 3.6, 0.4,
+    -0, 3.6, 0.5,
+    -1.6, 0.4, 0.5,
+  ]
+  // for(let i=0; i<22; i++) {
+  //   const degreeCurrRad = i * 0.5 / Math.PI
+  //   const degreeNextRad = (i + 1) * 0.5 / Math.PI
+  //   const offsetY = -0.4
+  //   const vNew = [
+  //     1.5 + radius * Math.sin(degreeCurrRad), -0.5 - radius * Math.sin(degreeCurrRad / 2),-0.4 - radius * Math.sin(degreeCurrRad / 2),
+  //     1.5 + radius * Math.sin(degreeCurrRad), -0.5 - radius * Math.sin(degreeCurrRad / 2), -0.5 - radius * Math.sin(degreeCurrRad / 2),
+  //     1.5 + radius * Math.sin(degreeNextRad), -0.4 - radius * Math.sin(degreeNextRad / 2), -0.5 - radius * Math.sin(degreeCurrRad / 2),
+  //     1.5 + radius * Math.sin(degreeNextRad), -0.4 - radius * Math.sin(degreeNextRad / 2),-0.4 - radius * Math.sin(degreeCurrRad / 2),
+  //     -(1.5 + radius * Math.sin(degreeCurrRad)), -0.5 - radius * Math.sin(degreeCurrRad / 2),-0.4 - radius * Math.sin(degreeCurrRad / 2),
+  //     -(1.5 + radius * Math.sin(degreeCurrRad)), -0.5 - radius * Math.sin(degreeCurrRad / 2), -0.5 - radius * Math.sin(degreeCurrRad / 2),
+  //     -(1.5 + radius * Math.sin(degreeNextRad)), -0.4 - radius * Math.sin(degreeNextRad / 2), -0.5 - radius * Math.sin(degreeCurrRad / 2),
+  //     -(1.5 + radius * Math.sin(degreeNextRad)), -0.4 - radius * Math.sin(degreeNextRad / 2),-0.4 - radius * Math.sin(degreeCurrRad / 2)
+  //   ]
+  //   v.push(...vNew)
+  // }
+  const iCalon = [3,2,1,3,1,0];
+  const i = [3,2,1,3,1,0]
+  // for(let k=1;k<180; k++) {
+  //   i.push(...iCalon.map(calon => (calon + (k*4))))
+  // }
+  // console.log(v)
+  const c = []
+  for(let k=0; k<i.length; k++) c.push(...[1, 1, 1])
+  return {v, i, c}
+}
+
 /**
  * @type {HTMLCanvasElement} canvas
  */
@@ -312,6 +361,7 @@ pushToVerticesAndIndices(vertices, indices, colors, getSiripDepanAtasAntena())
 pushToVerticesAndIndices(vertices, indices, colors, getSiripTengahAntena())
 pushToVerticesAndIndices(vertices, indices, colors, getBulatBesarAntena())
 pushToVerticesAndIndices(vertices, indices, colors, getBawahBulatBesarAntena())
+pushToVerticesAndIndices(vertices, indices, colors, getSegitigaAntena())
 // pushToVerticesAndIndices(vertices, indices, getLeftSideRedAntena())
 // pushToVerticesAndIndices(vertices, indices, getRightSideRedAntena())
 
