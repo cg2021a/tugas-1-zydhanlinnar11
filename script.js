@@ -401,7 +401,6 @@ var indices = [];
 
 var colors = [];
 
-
 pushToVerticesAndIndices(vertices, indices, colors, getFrontSideRedAntena())
 pushToVerticesAndIndices(vertices, indices, colors, getBackSideRedAntena())
 pushToVerticesAndIndices(vertices, indices, colors, getWhiteBatangAntena())
@@ -413,6 +412,24 @@ pushToVerticesAndIndices(vertices, indices, colors, getBawahBulatBesarAntena())
 pushToVerticesAndIndices(vertices, indices, colors, getSegitigaAntena())
 pushToVerticesAndIndices(vertices, indices, colors, getXBawah())
 pushToVerticesAndIndices(vertices, indices, colors, getSiripDepanBawahhhAntena())
+
+let rightVertices = []
+for(let i=2; i<vertices.length; i+=3) {
+  rightVertices.push(vertices[i], vertices[i - 1], vertices[i - 2])
+}
+indices.push(...indices.map(index => (index + vertices.length / 3)))
+vertices.push(...rightVertices)
+colors.push(...colors)
+for(let i=0; i<vertices.length/2; i++) {
+  vertices[i] /= 2;
+  if(i % 3 == 0)
+    vertices[i] -= 1.5;
+}
+for(let i=vertices.length/2; i<vertices.length; i++) {
+  vertices[i] /= 2;
+  if(i % 3 == 0)
+    vertices[i] += 1.5;
+}
 // console.log(vertices.length)
 // pushToVerticesAndIndices(vertices, indices, getLeftSideRedAntena())
 // pushToVerticesAndIndices(vertices, indices, getRightSideRedAntena())
@@ -486,7 +503,7 @@ gl.vertexAttribPointer(position, 3, gl.FLOAT, false,0,0) ;
 gl.enableVertexAttribArray(position);
 gl.bindBuffer(gl.ARRAY_BUFFER, color_buffer);
 var color = gl.getAttribLocation(shaderProgram, "color");
-gl.vertexAttribPointer(color, 3, gl.FLOAT, false,0,0) ;
+gl.vertexAttribPointer(color, 3, gl.FLOAT, false,0,0);
 
 // Color
 gl.enableVertexAttribArray(color);
@@ -514,59 +531,59 @@ view_matrix[14] = view_matrix[14]-6;//zoom
 
 /*==================== Rotation ====================*/
 
-function rotateZ(m, angle) {
-  var c = Math.cos(angle);
-  var s = Math.sin(angle);
-  var mv0 = m[0], mv4 = m[4], mv8 = m[8];
+// function rotateZ(m, angle) {
+//   var c = Math.cos(angle);
+//   var s = Math.sin(angle);
+//   var mv0 = m[0], mv4 = m[4], mv8 = m[8];
 
-  m[0] = c*m[0]-s*m[1];
-  m[4] = c*m[4]-s*m[5];
-  m[8] = c*m[8]-s*m[9];
+//   m[0] = c*m[0]-s*m[1];
+//   m[4] = c*m[4]-s*m[5];
+//   m[8] = c*m[8]-s*m[9];
 
-  m[1]=c*m[1]+s*mv0;
-  m[5]=c*m[5]+s*mv4;
-  m[9]=c*m[9]+s*mv8;
-}
+//   m[1]=c*m[1]+s*mv0;
+//   m[5]=c*m[5]+s*mv4;
+//   m[9]=c*m[9]+s*mv8;
+// }
 
-function rotateX(m, angle) {
-  var c = Math.cos(angle);
-  var s = Math.sin(angle);
-  var mv1 = m[1], mv5 = m[5], mv9 = m[9];
+// function rotateX(m, angle) {
+//   var c = Math.cos(angle);
+//   var s = Math.sin(angle);
+//   var mv1 = m[1], mv5 = m[5], mv9 = m[9];
 
-  m[1] = m[1]*c-m[2]*s;
-  m[5] = m[5]*c-m[6]*s;
-  m[9] = m[9]*c-m[10]*s;
+//   m[1] = m[1]*c-m[2]*s;
+//   m[5] = m[5]*c-m[6]*s;
+//   m[9] = m[9]*c-m[10]*s;
 
-  m[2] = m[2]*c+mv1*s;
-  m[6] = m[6]*c+mv5*s;
-  m[10] = m[10]*c+mv9*s;
-}
+//   m[2] = m[2]*c+mv1*s;
+//   m[6] = m[6]*c+mv5*s;
+//   m[10] = m[10]*c+mv9*s;
+// }
 
-function rotateY(m, angle) {
-  var c = Math.cos(angle);
-  var s = Math.sin(angle);
-  var mv0 = m[0], mv4 = m[4], mv8 = m[8];
+// function rotateY(m, angle) {
+//   var c = Math.cos(angle);
+//   var s = Math.sin(angle);
+//   var mv0 = m[0], mv4 = m[4], mv8 = m[8];
 
-  m[0] = c*m[0]+s*m[2];
-  m[4] = c*m[4]+s*m[6];
-  m[8] = c*m[8]+s*m[10];
+//   m[0] = c*m[0]+s*m[2];
+//   m[4] = c*m[4]+s*m[6];
+//   m[8] = c*m[8]+s*m[10];
 
-  m[2] = c*m[2]-s*mv0;
-  m[6] = c*m[6]-s*mv4;
-  m[10] = c*m[10]-s*mv8;
-}
+//   m[2] = c*m[2]-s*mv0;
+//   m[6] = c*m[6]-s*mv4;
+//   m[10] = c*m[10]-s*mv8;
+// }
 
 /*================= Drawing ===========================*/
 var time_old = 0;
   // rotateY(mov_matrix, 2);
 
-var animate = function(time) {
+// var animate = function(time) {
 
-  var dt = time-time_old;
+  // var dt = time-time_old;
   // rotateZ(mov_matrix, dt*0.005);//time
-  rotateY(mov_matrix, dt*0.002);
-  // rotateX(mov_matrix, dt*0.003);
-  time_old = time;
+  // rotateY(mov_matrix, 1.5);
+  // rotateX(mov_matrix, 0.5);
+  // time_old = time;
 
   gl.enable(gl.DEPTH_TEST);
   gl.depthFunc(gl.LEQUAL);
@@ -580,7 +597,5 @@ var animate = function(time) {
   gl.uniformMatrix4fv(Mmatrix, false, mov_matrix);
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, index_buffer);
   gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT, 0);
-
-  window.requestAnimationFrame(animate);
-}
-animate(0);
+// }
+// animate(0);
