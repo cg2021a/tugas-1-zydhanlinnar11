@@ -93,7 +93,7 @@ function getWhiteBatangAntena() {
   for(let k=0;k<360; k++) {
     i.push(...iCalon.map(calon => (calon + (k*4))))
   }
-  console.log(v)
+  // console.log(v)
   const c = []
   for(let k=0; k<i.length; k++) c.push(...[1, 1, 1])
   return {v, i, c}
@@ -127,6 +127,99 @@ function getAlasAntena() {
   return {v, i, c}
 }
 
+function getSiripDepanAtasAntena() {
+  const radius = 0.08
+  const centerZ = 0.45
+  const keliling = Math.PI * 2 * radius
+  const v = []
+  for(let i=0; i<360; i++) {
+    const degreeCurrRad = i * 0.5 / Math.PI
+    const degreeNextRad = (i + 1) * 0.5 / Math.PI
+    const offsetY = -0.4
+    const vNew = [
+      2,radius * Math.sin(degreeCurrRad) + offsetY,centerZ + radius * Math.cos(degreeCurrRad),
+      1.2,radius * Math.sin(degreeCurrRad) + offsetY,centerZ + radius * Math.cos(degreeCurrRad),
+      1.2,radius * Math.sin(degreeNextRad) + offsetY,centerZ + radius * Math.cos(degreeNextRad),
+      2,radius * Math.sin(degreeNextRad) + offsetY,centerZ + radius * Math.cos(degreeNextRad)
+    ]
+    v.push(...vNew)
+  }
+  for(let i=0; i<360; i++) {
+    const degreeCurrRad = i * 0.5 / Math.PI
+    const degreeNextRad = (i + 1) * 0.5 / Math.PI
+    const offsetY = -0.4
+    const vNew = [
+      -2,radius * Math.sin(degreeCurrRad) + offsetY,centerZ + radius * Math.cos(degreeCurrRad),
+      -1.2,radius * Math.sin(degreeCurrRad) + offsetY,centerZ + radius * Math.cos(degreeCurrRad),
+      -1.2,radius * Math.sin(degreeNextRad) + offsetY,centerZ + radius * Math.cos(degreeNextRad),
+      -2,radius * Math.sin(degreeNextRad) + offsetY,centerZ + radius * Math.cos(degreeNextRad)
+    ]
+    v.push(...vNew)
+  }
+  const iCalon = [3,2,1,3,1,0];
+  const i = []
+  for(let k=0;k<720-1; k++) {
+    i.push(...iCalon.map(calon => (calon + (k*4))))
+  }
+  // console.log(v)
+  const c = []
+  for(let k=0; k<i.length; k++) c.push(...[1, 1, 1])
+  return {v, i, c}
+}
+
+function getSiripTengahAntena() {
+  
+  const radius = 0.075
+  const centerZ = 0.0
+  const keliling = Math.PI * 2 * radius
+  const v = []
+  for(let i=0; i<360; i++) {
+    const degreeCurrRad = i * 0.5 / Math.PI
+    const degreeNextRad = (i + 1) * 0.5 / Math.PI
+    const offsetY = 1
+    const vNew = [
+      -1.2,radius * Math.sin(degreeCurrRad) + offsetY,centerZ + radius * Math.cos(degreeCurrRad),
+      1.2,radius * Math.sin(degreeCurrRad) + offsetY,centerZ + radius * Math.cos(degreeCurrRad),
+      1.2,radius * Math.sin(degreeNextRad) + offsetY,centerZ + radius * Math.cos(degreeNextRad),
+      -1.2,radius * Math.sin(degreeNextRad) + offsetY,centerZ + radius * Math.cos(degreeNextRad)
+    ]
+    v.push(...vNew)
+  }
+  for(let i=0; i<360; i++) {
+    const degreeCurrRad = i * 0.5 / Math.PI
+    const degreeNextRad = (i + 1) * 0.5 / Math.PI
+    const offsetY = 1.9
+    const vNew = [
+      -1.2,radius * Math.sin(degreeCurrRad) + offsetY,centerZ + radius * Math.cos(degreeCurrRad),
+      1.2,radius * Math.sin(degreeCurrRad) + offsetY,centerZ + radius * Math.cos(degreeCurrRad),
+      1.2,radius * Math.sin(degreeNextRad) + offsetY,centerZ + radius * Math.cos(degreeNextRad),
+      -1.2,radius * Math.sin(degreeNextRad) + offsetY,centerZ + radius * Math.cos(degreeNextRad)
+    ]
+    v.push(...vNew)
+  }
+  // for(let i=0; i<360; i++) {
+  //   const degreeCurrRad = i * 0.5 / Math.PI
+  //   const degreeNextRad = (i + 1) * 0.5 / Math.PI
+  //   const offsetY = -0.4
+  //   const vNew = [
+  //     -2,radius * Math.sin(degreeCurrRad) + offsetY,centerZ + radius * Math.cos(degreeCurrRad),
+  //     -1.2,radius * Math.sin(degreeCurrRad) + offsetY,centerZ + radius * Math.cos(degreeCurrRad),
+  //     -1.2,radius * Math.sin(degreeNextRad) + offsetY,centerZ + radius * Math.cos(degreeNextRad),
+  //     -2,radius * Math.sin(degreeNextRad) + offsetY,centerZ + radius * Math.cos(degreeNextRad)
+  //   ]
+  //   v.push(...vNew)
+  // }
+  const iCalon = [3,2,1,3,1,0];
+  const i = []
+  for(let k=0;k<720-1; k++) {
+    i.push(...iCalon.map(calon => (calon + (k*4))))
+  }
+  // console.log(v)
+  const c = []
+  for(let k=0; k<i.length; k++) c.push(...[1, 1, 1])
+  return {v, i, c}
+}
+
 /**
  * @type {HTMLCanvasElement} canvas
  */
@@ -152,6 +245,8 @@ pushToVerticesAndIndices(vertices, indices, colors, getFrontSideRedAntena())
 pushToVerticesAndIndices(vertices, indices, colors, getBackSideRedAntena())
 pushToVerticesAndIndices(vertices, indices, colors, getWhiteBatangAntena())
 pushToVerticesAndIndices(vertices, indices, colors, getAlasAntena())
+pushToVerticesAndIndices(vertices, indices, colors, getSiripDepanAtasAntena())
+pushToVerticesAndIndices(vertices, indices, colors, getSiripTengahAntena())
 // pushToVerticesAndIndices(vertices, indices, getLeftSideRedAntena())
 // pushToVerticesAndIndices(vertices, indices, getRightSideRedAntena())
 
