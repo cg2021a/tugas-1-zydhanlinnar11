@@ -305,28 +305,76 @@ function getSegitigaAntena() {
     -0, 3.6, 0.5,
     -1.6, 0.4, 0.5,
   ]
-  // for(let i=0; i<22; i++) {
-  //   const degreeCurrRad = i * 0.5 / Math.PI
-  //   const degreeNextRad = (i + 1) * 0.5 / Math.PI
-  //   const offsetY = -0.4
-  //   const vNew = [
-  //     1.5 + radius * Math.sin(degreeCurrRad), -0.5 - radius * Math.sin(degreeCurrRad / 2),-0.4 - radius * Math.sin(degreeCurrRad / 2),
-  //     1.5 + radius * Math.sin(degreeCurrRad), -0.5 - radius * Math.sin(degreeCurrRad / 2), -0.5 - radius * Math.sin(degreeCurrRad / 2),
-  //     1.5 + radius * Math.sin(degreeNextRad), -0.4 - radius * Math.sin(degreeNextRad / 2), -0.5 - radius * Math.sin(degreeCurrRad / 2),
-  //     1.5 + radius * Math.sin(degreeNextRad), -0.4 - radius * Math.sin(degreeNextRad / 2),-0.4 - radius * Math.sin(degreeCurrRad / 2),
-  //     -(1.5 + radius * Math.sin(degreeCurrRad)), -0.5 - radius * Math.sin(degreeCurrRad / 2),-0.4 - radius * Math.sin(degreeCurrRad / 2),
-  //     -(1.5 + radius * Math.sin(degreeCurrRad)), -0.5 - radius * Math.sin(degreeCurrRad / 2), -0.5 - radius * Math.sin(degreeCurrRad / 2),
-  //     -(1.5 + radius * Math.sin(degreeNextRad)), -0.4 - radius * Math.sin(degreeNextRad / 2), -0.5 - radius * Math.sin(degreeCurrRad / 2),
-  //     -(1.5 + radius * Math.sin(degreeNextRad)), -0.4 - radius * Math.sin(degreeNextRad / 2),-0.4 - radius * Math.sin(degreeCurrRad / 2)
-  //   ]
-  //   v.push(...vNew)
-  // }
   const iCalon = [3,2,1,3,1,0];
   const i = [3,2,1,3,1,0]
-  // for(let k=1;k<180; k++) {
-  //   i.push(...iCalon.map(calon => (calon + (k*4))))
-  // }
-  // console.log(v)
+  const c = []
+  for(let k=0; k<i.length; k++) c.push(...[1, 1, 1])
+  return {v, i, c}
+}
+
+function getXBawah() {
+  const radius = 0.4
+  const centerZ = 0.0
+  const keliling = Math.PI * 2 * radius
+  const v = [
+    1.2, -0.8, -0.8,
+    0.8, -0.8, -1,
+    0, -0.8, -0,
+    0.3, -0.8, -0,
+    -1.2, -0.8, -0.8,
+    -0.8, -0.8, -1,
+    -0, -0.8, -0,
+    -0.3, -0.8, -0,
+    1.2, -0.8, 0.8,
+    0.8, -0.8, 1,
+    0, -0.8, 0,
+    0.3, -0.8, 0,
+    -1.2, -0.8, 0.8,
+    -0.8, -0.8, 1,
+    -0, -0.8, 0,
+    -0.3, -0.8, 0,
+  ]
+  const iCalon = [3,2,1,3,1,0];
+  const i = [3,2,1,3,1,0]
+  const c = []
+  for(let k=0; k<i.length; k++) c.push(...[160 / 255, 83/255, 43/255])
+  return {v, i, c}
+}
+
+function getSiripDepanBawahhhAntena() {
+  const radius = 0.08
+  const centerZ = 0.9
+  const keliling = Math.PI * 2 * radius
+  const v = []
+  for(let i=0; i<360; i++) {
+    const degreeCurrRad = i * 0.5 / Math.PI
+    const degreeNextRad = (i + 1) * 0.5 / Math.PI
+    const offsetY = -0.8
+    const vNew = [
+      1.6,radius * Math.sin(degreeCurrRad) + offsetY,centerZ + radius * Math.cos(degreeCurrRad),
+      0.7,radius * Math.sin(degreeCurrRad) + offsetY,centerZ + radius * Math.cos(degreeCurrRad),
+      0.7,radius * Math.sin(degreeNextRad) + offsetY,centerZ + radius * Math.cos(degreeNextRad),
+      1.6,radius * Math.sin(degreeNextRad) + offsetY,centerZ + radius * Math.cos(degreeNextRad)
+    ]
+    v.push(...vNew)
+  }
+  for(let i=0; i<360; i++) {
+    const degreeCurrRad = i * 0.5 / Math.PI
+    const degreeNextRad = (i + 1) * 0.5 / Math.PI
+    const offsetY = -0.8
+    const vNew = [
+      -1.6,radius * Math.sin(degreeCurrRad) + offsetY,centerZ + radius * Math.cos(degreeCurrRad),
+      -0.7,radius * Math.sin(degreeCurrRad) + offsetY,centerZ + radius * Math.cos(degreeCurrRad),
+      -0.7,radius * Math.sin(degreeNextRad) + offsetY,centerZ + radius * Math.cos(degreeNextRad),
+      -1.6,radius * Math.sin(degreeNextRad) + offsetY,centerZ + radius * Math.cos(degreeNextRad)
+    ]
+    v.push(...vNew)
+  }
+  const iCalon = [3,2,1,3,1,0];
+  const i = []
+  for(let k=0;k<720-1; k++) {
+    i.push(...iCalon.map(calon => (calon + (k*4))))
+  }
   const c = []
   for(let k=0; k<i.length; k++) c.push(...[1, 1, 1])
   return {v, i, c}
@@ -353,6 +401,7 @@ var indices = [];
 
 var colors = [];
 
+
 pushToVerticesAndIndices(vertices, indices, colors, getFrontSideRedAntena())
 pushToVerticesAndIndices(vertices, indices, colors, getBackSideRedAntena())
 pushToVerticesAndIndices(vertices, indices, colors, getWhiteBatangAntena())
@@ -362,6 +411,9 @@ pushToVerticesAndIndices(vertices, indices, colors, getSiripTengahAntena())
 pushToVerticesAndIndices(vertices, indices, colors, getBulatBesarAntena())
 pushToVerticesAndIndices(vertices, indices, colors, getBawahBulatBesarAntena())
 pushToVerticesAndIndices(vertices, indices, colors, getSegitigaAntena())
+pushToVerticesAndIndices(vertices, indices, colors, getXBawah())
+pushToVerticesAndIndices(vertices, indices, colors, getSiripDepanBawahhhAntena())
+// console.log(vertices.length)
 // pushToVerticesAndIndices(vertices, indices, getLeftSideRedAntena())
 // pushToVerticesAndIndices(vertices, indices, getRightSideRedAntena())
 
