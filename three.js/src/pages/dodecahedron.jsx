@@ -38,7 +38,7 @@ const navigation = [
   { name: 'Ikosahedron', href: '/ikosahedron', current: false },
   { name: 'Tetrahedron', href: '/tetrahedron', current: false },
   { name: 'Dodecahedron', href: '/dodecahedron', current: true },
-  { name: 'Tabung', href: '/tabung', current: false },
+  { name: 'Torus Knot', href: '/torus-knot', current: false },
 ]
 
 export default function Dodecahedron() {
@@ -111,7 +111,7 @@ export default function Dodecahedron() {
           Dodecahedron - Tugas Three.js - Zydhan - Grafika Komputer A
         </title>
         <link rel='icon' href='/favicon.ico' />
-        <script src='/three.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
       </Head>
 
       <main className='flex flex-col items-center justify-center w-full flex-1 px-20 text-center'>
