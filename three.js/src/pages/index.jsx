@@ -22,6 +22,15 @@ export default function Home() {
         <title>Tugas Three.js - Zydhan - Grafika Komputer A</title>
         <link rel='icon' href='/favicon.ico' />
         <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
+        <meta
+          property='og:title'
+          content='Tugas Three.js - Zydhan - Grafika Komputer A'
+        />
+        <meta property='og:type' content='website' />
+        <meta
+          property='og:url'
+          content='https://cg2021a.github.io/tugas-1-zydhanlinnar11/three.js/'
+        />
       </Head>
 
       <main className='flex flex-col items-center justify-center w-full flex-1 px-20 text-center'>

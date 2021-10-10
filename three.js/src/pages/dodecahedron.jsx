@@ -66,7 +66,7 @@ export default function Dodecahedron() {
 
     // Geometry
     const geometry = new THREE.DodecahedronGeometry()
-    const material = new THREE.MeshStandardMaterial({
+    const material = new THREE.MeshPhongMaterial({
       color: 0xff00ff,
       wireframe: true,
     })
@@ -112,6 +112,15 @@ export default function Dodecahedron() {
         </title>
         <link rel='icon' href='/favicon.ico' />
         <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
+        <meta
+          property='og:title'
+          content='Dodecahedron - Tugas Three.js - Zydhan - Grafika Komputer A'
+        />
+        <meta property='og:type' content='website' />
+        <meta
+          property='og:url'
+          content='https://cg2021a.github.io/tugas-1-zydhanlinnar11/three.js/dodecahedron'
+        />
       </Head>
 
       <main className='flex flex-col items-center justify-center w-full flex-1 px-20 text-center'>

@@ -66,7 +66,7 @@ export default function Ikosahedron() {
 
     // Geometry
     const geometry = new THREE.IcosahedronGeometry()
-    const material = new THREE.MeshStandardMaterial({
+    const material = new THREE.MeshNormalMaterial({
       color: 0x00ffff,
       wireframe: false,
     })
@@ -112,6 +112,15 @@ export default function Ikosahedron() {
         </title>
         <link rel='icon' href='/favicon.ico' />
         <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
+        <meta
+          property='og:title'
+          content='Ikosahedron - Tugas Three.js - Zydhan - Grafika Komputer A'
+        />
+        <meta property='og:type' content='website' />
+        <meta
+          property='og:url'
+          content='https://cg2021a.github.io/tugas-1-zydhanlinnar11/three.js/ikosahedron'
+        />
       </Head>
 
       <main className='flex flex-col items-center justify-center w-full flex-1 px-20 text-center'>
