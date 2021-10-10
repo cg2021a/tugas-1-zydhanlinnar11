@@ -13,28 +13,28 @@ const navigation = [
   { name: 'Tetrahedron', href: '/tetrahedron', current: false },
   { name: 'Dodecahedron', href: '/dodecahedron', current: false },
   { name: 'Torus Knot', href: '/torus-knot', current: false },
-  { name: 'Extras', href: '/extras', current: false },
+  { name: 'Extras', href: '/extras', current: true },
 ]
 
 export default function Home() {
   return (
     <div className='bg-gray-800 flex flex-col items-center justify-center min-h-screen py-2'>
       <Head>
-        <title>Tugas Three.js - Zydhan - Grafika Komputer A</title>
+        <title>Extras - Tugas Three.js - Zydhan - Grafika Komputer A</title>
         <link rel='icon' href='/favicon.ico' />
         <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
         <meta
           property='og:title'
-          content='Tugas Three.js - Zydhan - Grafika Komputer A'
+          content='Extras - Tugas Three.js - Zydhan - Grafika Komputer A'
         />
         <meta
           property='og:description'
-          content='Tugas Three.js by Zydhan Linnar Putra - 05111940000118'
+          content='Extras - Tugas Three.js by Zydhan Linnar Putra - 05111940000118'
         />
         <meta property='og:type' content='website' />
         <meta
           property='og:url'
-          content='https://cg2021a.github.io/tugas-1-zydhanlinnar11/three.js/'
+          content='https://cg2021a.github.io/tugas-1-zydhanlinnar11/three.js/extras'
         />
       </Head>
 
@@ -77,7 +77,17 @@ export default function Home() {
             </>
           )}
         </Disclosure>
-        <div id='canvas-region'></div>
+        <div id='extras'>
+          <iframe
+            width='560'
+            height='315'
+            src='https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1'
+            title='YouTube video player'
+            frameborder='0'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+            allowfullscreen
+          ></iframe>
+        </div>
       </main>
 
       <footer className='flex items-center justify-center w-full h-10'>

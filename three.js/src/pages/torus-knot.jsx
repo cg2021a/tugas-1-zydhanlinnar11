@@ -39,6 +39,7 @@ const navigation = [
   { name: 'Tetrahedron', href: '/tetrahedron', current: false },
   { name: 'Dodecahedron', href: '/dodecahedron', current: false },
   { name: 'Torus Knot', href: '/torus-knot', current: true },
+  { name: 'Extras', href: '/extras', current: false },
 ]
 
 export default function Tabung() {

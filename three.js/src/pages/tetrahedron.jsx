@@ -39,6 +39,7 @@ const navigation = [
   { name: 'Tetrahedron', href: '/tetrahedron', current: true },
   { name: 'Dodecahedron', href: '/dodecahedron', current: false },
   { name: 'Torus Knot', href: '/torus-knot', current: false },
+  { name: 'Extras', href: '/extras', current: false },
 ]
 
 export default function Tetrahedron() {
