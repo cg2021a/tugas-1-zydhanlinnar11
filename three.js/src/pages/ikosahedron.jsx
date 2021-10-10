@@ -116,6 +116,10 @@ export default function Ikosahedron() {
           property='og:title'
           content='Ikosahedron - Tugas Three.js - Zydhan - Grafika Komputer A'
         />
+        <meta
+          property='og:description'
+          content='Tugas Three.js by Zydhan Linnar Putra - 05111940000118'
+        />
         <meta property='og:type' content='website' />
         <meta
           property='og:url'
