@@ -154,3 +154,18 @@ document.getElementById('canvas').onclick = (e) => {
     selectedObj = []
   }
 }
+
+const helpButton = document.getElementById('help-button')
+const helpModal = document.getElementById('help-modal')
+
+function showHelpModal() {
+  helpModal.classList.remove('hidden')
+  helpModal.classList.add('block')
+}
+
+function hideHelpModal() {
+  helpModal.classList.remove('block')
+  helpModal.classList.add('hidden')
+}
+
+helpButton.onclick = showHelpModal
