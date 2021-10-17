@@ -49,13 +49,13 @@ const camera = new THREE.PerspectiveCamera(
 
 function playGame() {
   camera.position.z = 6
+  document.getElementById('play-button').style.display = 'none'
   animate()
 }
 
 // Get state
 let spawnSpeed = 0.005
 let spawnSum = 0
-let objectCount = 0
 let spawnedPos = []
 const colorList = [0xc93d45, 0xffd100, 0x138176, 0x3d7196, 0x000000, 0x555555]
 
@@ -72,22 +72,26 @@ function randomPosition() {
   }
   return [x, y]
 }
+let gameOver = false
 
 const animate = function () {
   requestAnimationFrame(animate)
   if (spawnSum >= 1) {
     // Waktunya spawn
-    spawnSum = 0
-    // Tambah speed
-    spawnSpeed += 0.0004
-    const position = randomPosition()
-    const ball = createBall(randomColor(), position)
-    scene.add(ball)
-    spawnedPos.push(`${position[0]}${position[1]}`)
-    // console.log(ball)
-    objectCount++
-    if (objectCount > 11) {
+    if (spawnedPos.length > 11) {
       // Game over
+      document.getElementById('game-over-text').style.display = 'block'
+      gameOver = true
+      return
+    } else {
+      spawnSum = 0
+      // Tambah speed
+      spawnSpeed += 0.0004
+      const position = randomPosition()
+      const ball = createBall(randomColor(), position)
+      scene.add(ball)
+      spawnedPos.push(`${position[0]}${position[1]}`)
+      // console.log(ball)
     }
   } else {
     spawnSum += spawnSpeed
@@ -116,6 +120,7 @@ function setScore(newScore) {
 }
 
 document.getElementById('canvas').onclick = (e) => {
+  if (gameOver) return
   mouse.x = (e.offsetX / canvas.getBoundingClientRect().width) * 2 - 1
   mouse.y = -(e.offsetY / canvas.getBoundingClientRect().height) * 2 + 1
   rayCast.setFromCamera(mouse, camera)
