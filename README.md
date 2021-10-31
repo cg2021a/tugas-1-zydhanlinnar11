@@ -36,7 +36,7 @@ Nama Objek : Antena Televisi
 
 ### Tugas 2
 
-- [https://cg2021a.github.io/tugas-1-zydhanlinnar11/three.js-2](Color matching)
+- [Color Matching](https://cg2021a.github.io/tugas-1-zydhanlinnar11/three.js-2)
 
 ### Tugas 3
 
