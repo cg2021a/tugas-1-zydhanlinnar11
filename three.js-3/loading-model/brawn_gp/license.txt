@@ -1,0 +1,11 @@
+Model Information:
+* title:	Brawn GP
+* source:	https://sketchfab.com/3d-models/brawn-gp-fe961100dcd140fb8d8e7545cbb10bd4
+* author:	chwashere123 (https://sketchfab.com/chwashere123)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Brawn GP" (https://sketchfab.com/3d-models/brawn-gp-fe961100dcd140fb8d8e7545cbb10bd4) by chwashere123 (https://sketchfab.com/chwashere123) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
